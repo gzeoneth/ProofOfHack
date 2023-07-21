@@ -30,10 +30,7 @@ contract ProveOfHack {
             revert("ProveOfHack: unreachable");
         } catch Error(string memory reason) {
             if (keccak256(abi.encodePacked(string(reason))) != keccak256(abi.encodePacked("ProveOfHack: pwned"))) {
-                assembly {
-                    let returndata_size := mload(reason)
-                    revert(add(32, reason), returndata_size)
-                }
+                revert(reason);
             }
             _postHackAction();
         }
