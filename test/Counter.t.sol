@@ -9,16 +9,17 @@ contract CounterTest is Test {
 
     function setUp() public {
         counter = new Counter();
-        counter.setNumber(0);
     }
 
     function testIncrement() public {
-        counter.increment();
+        counter.increment(1);
         assertEq(counter.number(), 1);
     }
 
-    function testSetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
+    function testProveOfHack() public {
+        counter.increment(1);
+        bytes memory payload = abi.encodeWithSignature("increment(uint256)", type(uint256).max - counter.number() + 1);
+        counter.proofOfHack(address(counter), payload);
+        assertTrue(counter.paused());
     }
 }
