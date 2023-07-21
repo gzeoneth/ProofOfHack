@@ -28,13 +28,12 @@ contract ProveOfHack {
     function proofOfHack(address to, bytes calldata payload) external {
         try this._proofOfHack(to, payload) {
             revert("ProveOfHack: unreachable");
-        } catch {
-            string memory a;
-            assembly {
-                a := mload(0x40)
-            }
-            if (keccak256(abi.encodePacked(a)) != keccak256(abi.encodePacked("ProveOfHack: pwned"))) {
-                revert("ProveOfHack: failed");
+        } catch Error(string memory reason) {
+            if (keccak256(abi.encodePacked(string(reason))) != keccak256(abi.encodePacked("ProveOfHack: pwned"))) {
+                assembly {
+                    let returndata_size := mload(reason)
+                    revert(add(32, reason), returndata_size)
+                }
             }
             _postHackAction();
         }
