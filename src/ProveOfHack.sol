@@ -2,12 +2,15 @@
 pragma solidity ^0.8.13;
 
 import "./HackExecutor.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract ProveOfHack {
-    HackExecutor private immutable executor;
+    HackExecutor public immutable executor;
+    IERC20 public immutable bountyToken;
 
-    constructor() {
+    constructor(address _bountyToken) {
         executor = new HackExecutor();
+        bountyToken = IERC20(_bountyToken);
     }
 
     function _preHackSnapshot() internal virtual {}
@@ -17,6 +20,10 @@ contract ProveOfHack {
     }
 
     function _postHackAction() internal virtual {}
+
+    function _payoutBounty(address to) internal virtual {
+        bountyToken.transfer(to, bountyToken.balanceOf(address(this)));
+    }
 
     function _proofOfHack(address to, bytes calldata payload) external {
         _preHackSnapshot();
@@ -33,6 +40,7 @@ contract ProveOfHack {
                 revert(reason);
             }
             _postHackAction();
+            _payoutBounty(msg.sender);
         }
     }
 }

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import "@openzeppelin/contracts/security/Pausable.sol";
 import "./ProveOfHack.sol";
 
-contract UpOnly is PausableUpgradeable, ProveOfHack {
+contract UpOnly is Pausable, ProveOfHack {
     uint256 public number;
 
     uint256 private snapshot;
@@ -14,6 +14,8 @@ contract UpOnly is PausableUpgradeable, ProveOfHack {
         // we store the current state of the contract in a snapshot variable
         snapshot = number;
     }
+
+    constructor(address _bountyToken) Pausable() ProveOfHack(_bountyToken) {}
 
     function _postHackCheck() internal view override returns (bool) {
         // this will be called after invoking ProveOfHack to check if there is a hack
