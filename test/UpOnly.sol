@@ -22,4 +22,12 @@ contract UpOnlyTest is Test {
         counter.proofOfHack(address(counter), payload);
         assertTrue(counter.paused());
     }
+
+    function testRevertNoHack() public {
+        counter.increment(1);
+        bytes memory payload = abi.encodeWithSignature("increment(uint256)", 1);
+        vm.expectRevert("ProveOfHack: failed");
+        counter.proofOfHack(address(counter), payload);
+        assertFalse(counter.paused());
+    }
 }
