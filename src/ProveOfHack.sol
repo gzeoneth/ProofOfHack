@@ -25,15 +25,15 @@ contract ProveOfHack {
         bountyToken.transfer(to, bountyToken.balanceOf(address(this)));
     }
 
-    function _proofOfHack(address to, bytes calldata payload) external {
+    function _proofOfHack(address to, bytes calldata payload, bool isDelegateCall) external {
         _preHackSnapshot();
-        executor.execute(to, payload);
+        executor.execute(to, payload, isDelegateCall);
         require(_postHackCheck(), "ProveOfHack: failed");
         revert("ProveOfHack: pwned");
     }
 
-    function proofOfHack(address to, bytes calldata payload) external {
-        try this._proofOfHack(to, payload) {
+    function proofOfHack(address to, bytes calldata payload, bool isDelegateCall) external {
+        try this._proofOfHack(to, payload, isDelegateCall) {
             revert("ProveOfHack: unreachable");
         } catch Error(string memory reason) {
             if (keccak256(abi.encodePacked(string(reason))) != keccak256(abi.encodePacked("ProveOfHack: pwned"))) {
