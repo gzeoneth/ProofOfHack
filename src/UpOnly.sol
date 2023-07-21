@@ -2,9 +2,10 @@
 pragma solidity ^0.8.13;
 
 import "@openzeppelin/contracts/security/Pausable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 import "./ProveOfHack.sol";
 
-contract UpOnly is Pausable, ProveOfHack {
+contract UpOnly is Ownable, Pausable, ProveOfHack {
     uint256 public number;
 
     uint256 private _snapshot;
@@ -15,7 +16,7 @@ contract UpOnly is Pausable, ProveOfHack {
         _snapshot = number;
     }
 
-    constructor(address _bountyToken) Pausable() ProveOfHack(_bountyToken) {}
+    constructor(address _bountyToken) Ownable() Pausable() ProveOfHack(_bountyToken) {}
 
     function _postHackCheck() internal view override returns (bool) {
         // this will be called after invoking ProveOfHack to check if there is a hack
@@ -27,6 +28,14 @@ contract UpOnly is Pausable, ProveOfHack {
         // this will be called when ProveOfHack identified a hack
         // we pause the contract in this example
         _pause();
+    }
+
+    function pause() public onlyOwner {
+        _pause();
+    }
+
+    function unpause() public onlyOwner {
+        _unpause();
     }
 
     function increment(uint256 x) public {
