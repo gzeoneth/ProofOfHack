@@ -14,6 +14,10 @@ Proof of Hack is a EthGlobal Paris 2023 hack that enables whitehat hackers and s
 - Whitehat can secure protocols in prod with guaranteed payout
 - MEV searcher can frontrun hacker and secure the protocol
 
+## How
+- The payload is executed and reverted with "success"/"fail" based on the defined hack condition
+- Subsequent actions are triggered based on the revert string
+
 ## Example
 1. UpOnly.sol
 This is a simple contract with an increment only counter, where it is "hacked" if the counter decremented, and would trigger a pause when that happens.
