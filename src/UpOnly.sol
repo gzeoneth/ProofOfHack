@@ -7,12 +7,12 @@ import "./ProveOfHack.sol";
 contract UpOnly is Pausable, ProveOfHack {
     uint256 public number;
 
-    uint256 private snapshot;
+    uint256 private _snapshot;
 
     function _preHackSnapshot() internal override {
         // this will be called before invoking ProveOfHack
         // we store the current state of the contract in a snapshot variable
-        snapshot = number;
+        _snapshot = number;
     }
 
     constructor(address _bountyToken) Pausable() ProveOfHack(_bountyToken) {}
@@ -20,7 +20,7 @@ contract UpOnly is Pausable, ProveOfHack {
     function _postHackCheck() internal view override returns (bool) {
         // this will be called after invoking ProveOfHack to check if there is a hack
         // we define the hack as the number decremented in this example
-        return number < snapshot;
+        return number < _snapshot;
     }
 
     function _postHackAction() internal override {
