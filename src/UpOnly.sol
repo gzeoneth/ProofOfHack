@@ -10,13 +10,14 @@ contract UpOnly is Ownable, Pausable, ProveOfHack {
 
     uint256 private _snapshot;
 
+
+    constructor(address _bountyToken) Ownable() Pausable() ProveOfHack(_bountyToken) {}
+
     function _preHackSnapshot() internal override {
         // this will be called before invoking ProveOfHack
         // we store the current state of the contract in a snapshot variable
         _snapshot = number;
     }
-
-    constructor(address _bountyToken) Ownable() Pausable() ProveOfHack(_bountyToken) {}
 
     function _postHackCheck() internal view override returns (bool) {
         // this will be called after invoking ProveOfHack to check if there is a hack
