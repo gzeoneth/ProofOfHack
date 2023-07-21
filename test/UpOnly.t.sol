@@ -25,7 +25,7 @@ contract UpOnlyTest is Test {
         counter.increment(1);
         bytes memory payload = abi.encodeWithSignature("increment(uint256)", type(uint256).max - counter.number() + 1);
         vm.prank(WHITEHAT);
-        counter.proofOfHack(address(counter), payload, false);
+        counter.proofOfHack(address(counter), payload, false, "");
         assertTrue(counter.paused());
         assertEq(IERC20(counter.bountyToken()).balanceOf(WHITEHAT), 10 ether);
     }
@@ -34,7 +34,7 @@ contract UpOnlyTest is Test {
         counter.increment(1);
         bytes memory payload = abi.encodeWithSignature("increment(uint256)", 1);
         vm.expectRevert("ProveOfHack: failed");
-        counter.proofOfHack(address(counter), payload, false);
+        counter.proofOfHack(address(counter), payload, false, "");
         assertFalse(counter.paused());
     }
 }

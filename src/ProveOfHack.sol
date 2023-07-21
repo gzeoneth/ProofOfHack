@@ -21,7 +21,7 @@ contract ProveOfHack {
 
     function _postHackAction() internal virtual {}
 
-    function _payoutBounty(address to) internal virtual {
+    function _payoutBounty(address to, bytes calldata) internal virtual {
         bountyToken.transfer(to, bountyToken.balanceOf(address(this)));
     }
 
@@ -32,7 +32,7 @@ contract ProveOfHack {
         revert("ProveOfHack: pwned");
     }
 
-    function proofOfHack(address to, bytes calldata payload, bool isDelegateCall) external {
+    function proofOfHack(address to, bytes calldata payload, bool isDelegateCall, bytes calldata payoutData) external {
         try this._proofOfHack(to, payload, isDelegateCall) {
             revert("ProveOfHack: unreachable");
         } catch Error(string memory reason) {
@@ -40,7 +40,7 @@ contract ProveOfHack {
                 revert(reason);
             }
             _postHackAction();
-            _payoutBounty(msg.sender);
+            _payoutBounty(msg.sender, payoutData);
         }
     }
 }
