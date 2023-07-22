@@ -35,6 +35,8 @@ Instead of implementing on the protocol, this can also be implemented as a Safe 
 3. POHSafePlugin.sol
 
 Same as POHSafeModule.sol but as a Safe Core Plugin
+Example of trigging the pause from the plugin:
+https://goerli.etherscan.io/tx/0x70ddb8b016567e933f84c6e8512bd3c0fec5f9963e358474104563657813516f#eventlog
 
 4. UpOnlyZkBob.sol
 
