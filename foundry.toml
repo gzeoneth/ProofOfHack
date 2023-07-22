@@ -16,8 +16,8 @@ polygon = "https://rpc.ankr.com/polygon"
 celo = "https://rpc.ankr.com/celo"
 arbgoerli = "https://goerli-rollup.arbitrum.io/rpc"
 arbgoerliqn = "https://empty-side-morning.arbitrum-goerli.discover.quiknode.pro/${QN_APIKEY}/"
-goerli = "https://rpc.ankr.com/eth-goerli"
-sepolia = "https://rpc.ankr.com/eth-sepolia"
+goerli = "https://rpc.ankr.com/eth_goerli"
+sepolia = "https://rpc.ankr.com/eth_sepolia"
 neonevm = "https://devnet.neonevm.org"
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config

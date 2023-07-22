@@ -1,0 +1,18 @@
+# Arbitrum Goerli
+UpOnly Contract: 0x25154953c4EDbd52E349D8A237733C63c3bf0C2e
+POHSafeModule Contract: 0x7eAC5074101d1a6EBED46428e1A889E7daCc2299
+Safe Contract (owner of UpOnly): 0xe9B795BFc37fc3c9D79b468C3306DAa4E8382a6B
+Bounty Token: Disabled
+Commit: 0df2253
+
+# Sepolia
+UpOnly Contract: 0xb2590f8017651666481409308EF1218d1DB6B297
+Bounty Token: Disabled
+Commit: 0df2253
+
+# Neon Devnet
+UpOnly Contract: 0xb2590f8017651666481409308ef1218d1db6b297
+Bounty Token: USDC 0x512E48836Cd42F3eB6f50CEd9ffD81E0a7F15103
+Commit: 51e49a9
+
+Deployer: 0x4e0444512327cC2413D0Eb52e13E2CeE532C7138
