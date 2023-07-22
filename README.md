@@ -16,7 +16,8 @@ Proof of Hack is a EthGlobal Paris 2023 hack that enables whitehat hackers and s
 
 ## Usecase
 - Whitehat can secure protocols in prod with guaranteed payout
-- MEV searcher can frontrun hacker and secure the protocol
+- MEV searcher can frontrun hacker and secure protocols
+- Block builders can run tx against the ProofOfHack API to determine if a tx is a hack as defined by the protocol
 
 ## How
 - The payload is executed and reverted with "success"/"fail" based on the defined hack condition
