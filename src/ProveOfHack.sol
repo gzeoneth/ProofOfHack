@@ -22,7 +22,9 @@ contract ProveOfHack {
     function _postHackAction() internal virtual {}
 
     function _payoutBounty(address to, bytes calldata) internal virtual {
-        bountyToken.transfer(to, bountyToken.balanceOf(address(this)));
+        if (address(bountyToken) != address(0)) {
+            bountyToken.transfer(to, bountyToken.balanceOf(address(this)));
+        }
     }
 
     function _proofOfHack(address to, bytes calldata payload, bool isDelegateCall) external {
