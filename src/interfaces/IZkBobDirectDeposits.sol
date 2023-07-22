@@ -36,11 +36,7 @@ interface IZkBobDirectDeposits {
      * @param zkAddress receiver zk address.
      * @return depositId id of the submitted deposit to query status for.
      */
-    function directDeposit(
-        address fallbackReceiver,
-        uint256 amount,
-        bytes memory zkAddress
-    )
+    function directDeposit(address fallbackReceiver, uint256 amount, bytes memory zkAddress)
         external
         returns (uint256 depositId);
 
@@ -52,11 +48,7 @@ interface IZkBobDirectDeposits {
      * @param zkAddress receiver zk address.
      * @return depositId id of the submitted deposit to query status for.
      */
-    function directDeposit(
-        address fallbackReceiver,
-        uint256 amount,
-        string memory zkAddress
-    )
+    function directDeposit(address fallbackReceiver, uint256 amount, string memory zkAddress)
         external
         returns (uint256 depositId);
 

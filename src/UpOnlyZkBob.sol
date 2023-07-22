@@ -8,7 +8,6 @@ import "./UpOnly.sol";
 import "./interfaces/IZkBobDirectDeposits.sol";
 
 contract UpOnlyZkBob is UpOnly {
-
     IZkBobDirectDeposits public immutable queue;
 
     // Seploia BOB 0x2c74b18e2f84b78ac67428d0c7a9898515f0c46f
@@ -29,5 +28,4 @@ contract UpOnlyZkBob is UpOnly {
             uint256 depositId = queue.directDeposit(fallbackReceiver, balance, zkAddress);
         }
     }
-
 }

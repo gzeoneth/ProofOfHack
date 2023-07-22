@@ -10,7 +10,6 @@ contract UpOnly is Ownable, Pausable, ProveOfHack {
 
     uint256 private _snapshot;
 
-
     constructor(address _bountyToken) Ownable() Pausable() ProveOfHack(_bountyToken) {}
 
     function _preHackSnapshot() internal override {

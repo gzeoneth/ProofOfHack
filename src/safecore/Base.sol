@@ -24,20 +24,22 @@ struct PluginMetadata {
 
 library PluginMetadataOps {
     function encode(PluginMetadata memory data) internal pure returns (bytes memory) {
-        return
-            abi.encodePacked(
-                uint8(0x00), // Format
-                uint8(0x00), // Format version
-                abi.encode(data.name, data.version, data.requiresRootAccess, data.iconUrl, data.appUrl) // Plugin Metadata
-            );
+        return abi.encodePacked(
+            uint8(0x00), // Format
+            uint8(0x00), // Format version
+            abi.encode(data.name, data.version, data.requiresRootAccess, data.iconUrl, data.appUrl) // Plugin Metadata
+        );
     }
 
     function decode(bytes calldata data) internal pure returns (PluginMetadata memory) {
         require(bytes16(data[0:2]) == bytes16(0x0000), "Unsupported format or format version");
-        (string memory name, string memory version, bool requiresRootAccess, string memory iconUrl, string memory appUrl) = abi.decode(
-            data[2:],
-            (string, string, bool, string, string)
-        );
+        (
+            string memory name,
+            string memory version,
+            bool requiresRootAccess,
+            string memory iconUrl,
+            string memory appUrl
+        ) = abi.decode(data[2:], (string, string, bool, string, string));
         return PluginMetadata(name, version, requiresRootAccess, iconUrl, appUrl);
     }
 }

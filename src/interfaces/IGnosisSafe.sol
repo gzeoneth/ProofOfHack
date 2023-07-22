@@ -9,10 +9,7 @@ abstract contract OpEnum {
 }
 
 interface IGnosisSafe {
-    function execTransactionFromModule(
-        address to,
-        uint256 value,
-        bytes memory data,
-        OpEnum.Operation operation
-    ) external returns (bool success);
+    function execTransactionFromModule(address to, uint256 value, bytes memory data, OpEnum.Operation operation)
+        external
+        returns (bool success);
 }
