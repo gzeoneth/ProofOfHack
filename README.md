@@ -27,6 +27,7 @@ Proof of Hack is a EthGlobal Paris 2023 hack that enables whitehat hackers and s
 1. UpOnly.sol
 
 This is a simple contract with an increment only counter, where it is "hacked" if the counter decremented, and would trigger a pause when that happens.
+https://goerli.arbiscan.io/tx/0x43d4df8b8fa8f4d4ebeda45c0bd47612ada50cf7b3a1b306f7ebd9c08c2ee6ac
 
 2. POHSafeModule.sol
 
