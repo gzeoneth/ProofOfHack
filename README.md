@@ -1,4 +1,6 @@
 # Proof Of Hack
+![logo](./logo.png)
+
 Proof of Hack is a EthGlobal Paris 2023 hack that enables whitehat hackers and security researchers to demonstrate their ability to identify vulnerabilities in a protocol without actually exploiting them. When a hack is proofed an emergency action can be triggered, such as a pause, to protect the asset and prevent any potential damage. This can include a guaranteed payout to the whitehat to provide incentives.
 
 ![flowchart](./flow.png)
