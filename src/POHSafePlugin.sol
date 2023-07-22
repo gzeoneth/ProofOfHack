@@ -9,6 +9,7 @@ import {ISafeProtocolManager} from "@safe-global/safe-core-protocol/contracts/in
 import {SafeTransaction, SafeProtocolAction} from "@safe-global/safe-core-protocol/contracts/DataTypes.sol";
 
 contract POHSafePlugin is BasePluginWithEventMetadata, ProveOfHack {
+    // TODO: should allow user to specify manager and safe address to allow shared instances
     ISafeProtocolManager public immutable manager;
     ISafe public immutable safe;
     UpOnly public immutable uponly;
