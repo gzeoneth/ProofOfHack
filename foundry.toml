@@ -3,4 +3,21 @@ src = "src"
 out = "out"
 libs = ["lib"]
 
+[rpc_endpoints]
+mainnet = "https://rpc.ankr.com/eth"
+optimism = "https://opt-mainnet.g.alchemy.com/v2/demo"
+fantom = "https://rpc.ankr.com/fantom"
+arbitrum = "https://rpc.ankr.com/arbitrum"
+bsc = "https://rpc.ankr.com/bsc"
+moonriver = "https://moonriver.public.blastapi.io"
+gnosis = "https://rpc.ankr.com/gnosis"
+avalanche = "https://rpc.ankr.com/avalanche"
+polygon = "https://rpc.ankr.com/polygon"
+celo = "https://rpc.ankr.com/celo"
+arbgoerli = "https://goerli-rollup.arbitrum.io/rpc"
+arbgoerliqn = "https://empty-side-morning.arbitrum-goerli.discover.quiknode.pro/${QN_APIKEY}/"
+goerli = "https://rpc.ankr.com/eth-goerli"
+sepolia = "https://rpc.ankr.com/eth-sepolia"
+neonevm = "https://devnet.neonevm.org"
+
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
