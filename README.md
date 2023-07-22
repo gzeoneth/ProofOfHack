@@ -24,7 +24,9 @@ Proof of Hack is a EthGlobal Paris 2023 hack that enables whitehat hackers and s
 
 ## Example
 1. UpOnly.sol
+
 This is a simple contract with an increment only counter, where it is "hacked" if the counter decremented, and would trigger a pause when that happens.
 
 2. POHSafeModule.sol
-Instead of implementing on the protocol, this can also inplemented as a Safe module where it trigger an action as the safe when the hack condition is met. For example, here we trigger a pause from the Safe (owner of the UpOnly contract) 
+
+Instead of implementing on the protocol, this can also be implemented as a Safe module where it trigger an action as the safe when the hack condition is met. For example, here we trigger a pause from the Safe (owner of the UpOnly contract) 
