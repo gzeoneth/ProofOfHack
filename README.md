@@ -31,3 +31,7 @@ This is a simple contract with an increment only counter, where it is "hacked" i
 2. POHSafeModule.sol
 
 Instead of implementing on the protocol, this can also be implemented as a Safe module where it trigger an action as the safe when the hack condition is met. For example, here we trigger a pause from the Safe (owner of the UpOnly contract) 
+
+3. POHSafePlugin.sol
+
+Same as above but as a Safe Core Plugin
