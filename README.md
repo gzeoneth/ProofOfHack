@@ -34,4 +34,8 @@ Instead of implementing on the protocol, this can also be implemented as a Safe 
 
 3. POHSafePlugin.sol
 
-Same as above but as a Safe Core Plugin
+Same as POHSafeModule.sol but as a Safe Core Plugin
+
+4. UpOnlyZkBob.sol
+
+Same as UpOnly.sol but use ZkBob to send the bounty payment
